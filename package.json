@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/YoussefKababe/fontify.git"
+    "url": "https://github.com/jacob-alan-ward/fontify.git"
   },
   "keywords": [
     "fonts",
@@ -20,12 +20,12 @@
     "bootstrap",
     "front-end"
   ],
-  "author": "Youssef Kababe",
+  "author": "Youssef Kababe & Jacob Ward",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/YoussefKababe/fontify/issues"
+    "url": "https://github.com/jacob-alan-ward/fontify/issues"
   },
-  "homepage": "https://github.com/YoussefKababe/fontify#readme",
+  "homepage": "https://github.com/jacob-alan-ward/fontify#readme",
   "dependencies": {
     "app-root-dir": "^1.0.2",
     "findit": "^2.0.0",

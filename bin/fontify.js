@@ -6,20 +6,20 @@ var path = require('path');
 var isThere = require('is-there');
 var appRoot = require('app-root-dir').get();
 
-var dataFile = path.join(appRoot, 'fontify.json');
+var packageFile = path.join(appRoot, 'package.json');
 
-if (!isThere(dataFile)) {
-	console.error('Configuration file not found: fontify.json');
+var package = require(packageFile);
+
+if (!package.fonts) {
+	console.error('package.json "fonts" property not found');
 	return;
 }
 
-var data = require(dataFile);
+package.fonts.forEach(function (fontEntry) {
+	fontEntry.dest = fontEntry.dest || '.';
 
-data.forEach(function (entry) {
-	entry.dest = entry.dest || '.';
-
-	entry.modules.forEach(function (module) {
-		fontify.copy(module, entry.dest, function (err) {
+	fontEntry.modules.forEach(function (module) {
+		fontify.copy(module, fontEntry.dest, function (err) {
 			if (err) {
 				console.error(err);
 				return;

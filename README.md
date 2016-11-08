@@ -5,21 +5,20 @@ Fontify is a simple tool that grabs all the fonts from the node_modules folder a
 
 ### Usage:
 
-Install Fontify:
-
-```bash
-$ npm i fontify -g
-```
-
-Then place a file called "fontify.json" on the root folder of your project, you will use this file to specify the names of packages you want to copy font files from (source), plus the name of the folder where you want to place them (destination):
+Then in your package.json file you can use the "fonts" property to specify the names of packages you want to copy font files from (source), plus the name of the folder where you want to place them (destination):
 
 ```json
 {
-  "modules": [
-    "bootstrap",
-    "font-awesome"
-  ],
-  "dest": "dist"
+  "fonts": [
+    {
+      "modules": ["bootstrap"],
+      "dest": "dist/fonts"
+    },
+    {
+      "modules": ["font-awesome"],
+      "dest": "dist/otherDir"
+    },
+  ]
 }
 ```
 
@@ -38,9 +37,7 @@ After that you can require it in your code and use it like this:
 ```javascript
 var fontify = require('fontify');
 
-fontify.dest = "dist";
-
-fontify.copy('font-awesome', function(err) {
+fontify.copy('font-awesome', 'dist/fonts', function(err) {
   if (err)
     console.error(err);
 });
